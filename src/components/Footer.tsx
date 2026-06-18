@@ -1,6 +1,6 @@
 "use client";
 
-import { GitBranch, Globe, Mail, Heart, Twitter } from "lucide-react";
+import { GitBranch, Globe, Mail, Heart, X } from "lucide-react";
 
 export default function Footer() {
   const scrollTo = (id: string) => {
@@ -46,7 +46,7 @@ export default function Footer() {
             {[
               { icon: GitBranch, href: "https://github.com/vaibhavdas-wb", label: "GitHub" },
               { icon: Globe, href: "https://linkedin.com/in/vaibhav-das-wb", label: "LinkedIn" },
-              { icon: Twitter, href: "https://twitter.com", label: "X (Twitter)" },
+              { icon: X, href: "https://twitter.com", label: "X (Twitter)" },
               { icon: Mail, href: "mailto:vaibhavdas.dev@gmail.com", label: "Email" },
             ].map((social) => (
               <a

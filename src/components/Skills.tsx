@@ -35,7 +35,6 @@ import {
   SiGraphql,
   SiMysql,
   SiPostgresql,
-  SiOracle,
   SiMongodb,
   SiFirebase,
   SiGit,
@@ -111,7 +110,7 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "MySQL", icon: SiMysql, level: 88 },
       { name: "PostgreSQL", icon: SiPostgresql, level: 95 },
-      { name: "Oracle", icon: SiOracle, level: 70 },
+      { name: "Oracle", icon: Database, level: 70 },
       { name: "Microsoft SQL Server", icon: Database, level: 70 },
       { name: "MongoDB", icon: SiMongodb, level: 75 },
       { name: "Firebase", icon: SiFirebase, level: 80 },
