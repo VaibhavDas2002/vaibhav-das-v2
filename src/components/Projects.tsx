@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ExternalLink, GitBranch, ArrowUpRight } from "lucide-react";
 import { Button } from "./ui/button";
+import { TiltCard } from "./ui/TiltCard";
 
 interface Project {
   title: string;
@@ -18,55 +19,46 @@ const projects: Project[] = [
   {
     title: "Jai Bangla",
     description:
-      "Government Beneficiary Management System built with Laravel and PostgreSQL for efficient welfare program administration.",
-    tech: ["Laravel", "PostgreSQL", "PHP"],
-    github: "https://github.com",
-    live: "https://example.com",
+      "Full-stack web application for beneficiary registration, verification, and payment management under a state government scheme. Built dynamic dashboards with role-based access control and audit logging.",
+    tech: ["PHP", "Laravel", "PostgreSQL"],
     gradient: "from-orange-500 to-red-500",
   },
   {
     title: "Lakshmir Bhandar",
     description:
-      "Welfare Management Portal designed for streamlined distribution of government benefits to eligible citizens.",
-    tech: ["Laravel", "PostgreSQL", "PHP"],
-    github: "https://github.com",
-    live: "https://example.com",
+      "Government welfare portal for managing beneficiary records and disbursement of financial assistance. Implemented batch-processing workflows and PDF report generation.",
+    tech: ["PHP", "Laravel", "PostgreSQL"],
     gradient: "from-purple-500 to-pink-500",
   },
   {
     title: "West Bengal Tourism Portal",
     description:
-      "Comprehensive tourism information system featuring MongoDB-powered content management and Laravel backend.",
-    tech: ["Laravel", "MongoDB", "PHP"],
-    github: "https://github.com",
-    live: "https://example.com",
+      "Full-stack tourism information portal featuring destination listings, dynamic content management, and responsive UI.",
+    tech: ["PHP", "Laravel", "MongoDB"],
     gradient: "from-blue-500 to-cyan-500",
   },
   {
     title: "BloodMates",
     description:
-      "Cross-platform React Native application connecting blood donors with recipients in real-time using Firebase.",
-    tech: ["React Native", "Firebase", "JavaScript"],
+      "Cross-platform mobile app connecting blood donors with recipients using real-time Firebase database and geolocation. Integrated an AI chatbot to guide users.",
+    tech: ["React Native", "Firebase", "AI Chatbot"],
     github: "https://github.com",
-    live: "https://example.com",
     gradient: "from-red-500 to-rose-500",
   },
   {
-    title: "AI Chatbot & DAAV Invoice Management",
+    title: "DAAV Invoice Management",
     description:
-      "Intelligent chatbot system integrated with invoice management capabilities for automated business workflows.",
-    tech: ["PHP", "MySQL", "AI/ML"],
+      "Full-stack web application for inventory tracking, invoice generation, and factory workflow management.",
+    tech: ["PHP", "MySQL", "JavaScript"],
     github: "https://github.com",
-    live: "https://example.com",
     gradient: "from-green-500 to-emerald-500",
   },
   {
     title: "Food Billing System",
     description:
-      "Desktop application built with Python Tkinter and Pandas for restaurant billing and inventory management.",
-    tech: ["Python", "Tkinter", "Pandas"],
+      "Desktop GUI application for restaurant billing with data export, visual sales analytics, and receipt generation.",
+    tech: ["Python", "Tkinter", "Pandas", "Matplotlib"],
     github: "https://github.com",
-    live: "https://example.com",
     gradient: "from-yellow-500 to-orange-500",
   },
 ];
@@ -123,18 +115,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative perspective-1000"
+      className="group relative h-full"
     >
-      <motion.div
-        style={{ transformStyle: "preserve-3d" }}
-        animate={{
-          rotateX: isHovered ? -2 : 0,
-          rotateY: isHovered ? 2 : 0,
-          translateZ: isHovered ? 20 : 0,
-        }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        className="glass rounded-2xl overflow-hidden h-full flex flex-col"
-      >
+      <TiltCard tiltMaxAngleX={8} tiltMaxAngleY={8} scaleOnHover={1.02} className="h-full">
+        <div className="glass rounded-2xl overflow-hidden h-full flex flex-col">
         {/* Image placeholder */}
         <div
           className={`relative h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}
@@ -226,7 +210,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             )}
           </div>
         </div>
-      </motion.div>
+      </TiltCard>
     </motion.div>
   );
 }

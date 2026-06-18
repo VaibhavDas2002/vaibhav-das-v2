@@ -3,30 +3,40 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MapPin, GraduationCap, Briefcase, Award } from "lucide-react";
+import dynamic from "next/dynamic";
+
+const Abstract3D = dynamic(() => import("./Abstract3D"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full min-h-[400px] flex items-center justify-center">
+      <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 animate-pulse" />
+    </div>
+  ),
+});
 
 const highlights = [
   {
     icon: Briefcase,
     label: "Current Position",
-    value: "Software Developer at NIC",
+    value: "Software Developer",
     sub: "National Informatics Centre, West Bengal",
   },
   {
     icon: GraduationCap,
     label: "Education",
     value: "B.Tech in Computer Science & Engineering",
-    sub: "BIET • CGPA: 8.56",
+    sub: "M.A.K.A.U.T. • CGPA: 8.56",
   },
   {
     icon: Award,
     label: "Experience",
-    value: "3+ Years Teaching",
-    sub: "Multiple Government Projects Delivered",
+    value: "Lecturer (3 Years)",
+    sub: "Jatya Yuva Computer Siksha Mission",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "West Bengal, India",
+    value: "Birbhum, West Bengal, India",
     sub: "Available for Remote & On-site",
   },
 ];
@@ -91,7 +101,7 @@ export default function About() {
                 </div>
                 <h3 className="text-2xl font-bold">Vaibhav Das</h3>
                 <p className="text-primary font-medium mt-1">
-                  Software Developer & Full Stack Engineer
+                  Software Developer
                 </p>
               </div>
 
@@ -119,6 +129,17 @@ export default function About() {
                   </motion.div>
                 ))}
               </div>
+            </motion.div>
+
+            {/* Abstract 3D Element */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mt-8 glass rounded-2xl p-4 glow-border relative overflow-hidden"
+            >
+              <Abstract3D />
             </motion.div>
           </motion.div>
 
@@ -152,7 +173,7 @@ export default function About() {
                       Software Developer
                     </h4>
                     <p className="text-muted text-sm">
-                      National Informatics Centre (NIC), West Bengal
+                      National Informatics Centre (NIC), West Bengal | Kolkata, India
                     </p>
                     <div className="flex flex-wrap gap-2 mt-3">
                       {["E-Governance", "PostgreSQL", "Laravel", "Auth Systems"].map(
@@ -179,12 +200,12 @@ export default function About() {
                   <div className="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-secondary shadow-lg shadow-secondary/30" />
                   <div className="glass rounded-xl p-5 hover:border-secondary/20 transition-all duration-300">
                     <span className="text-xs text-secondary font-mono">
-                      Internship
+                      Jun 2023 – Jul 2023
                     </span>
                     <h4 className="text-lg font-semibold mt-1">
                       Front-End Web Development Intern
                     </h4>
-                    <p className="text-muted text-sm">IBM SkillsBuild</p>
+                    <p className="text-muted text-sm">IBM SkillsBuild and CSRBOX | Remote</p>
                     <div className="flex flex-wrap gap-2 mt-3">
                       {["Responsive Design", "React", "Full Stack", "Modern Web"].map(
                         (tag) => (
@@ -216,7 +237,7 @@ export default function About() {
                       B.Tech in Computer Science & Engineering
                     </h4>
                     <p className="text-muted text-sm">
-                      Birbhum Institute of Engineering and Technology
+                      Birbhum Institute of Engineering and Technology, M.A.K.A.U.T.
                     </p>
                     <div className="flex flex-wrap gap-2 mt-3">
                       <span className="text-xs px-2.5 py-1 rounded-full bg-accent/10 text-accent/90">

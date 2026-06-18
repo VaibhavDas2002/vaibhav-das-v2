@@ -16,9 +16,9 @@ interface Certification {
 const certifications: Certification[] = [
   {
     title: "Machine Learning Specialization",
-    issuer: "Stanford University / DeepLearning.AI",
+    issuer: "Duke University & University of Michigan (Coursera)",
     description:
-      "Comprehensive specialization covering supervised learning, neural networks, and ML best practices.",
+      "Comprehensive specialization covering supervised learning, neural networks, and machine learning best practices.",
     date: "2024",
     gradient: "from-blue-500 to-violet-500",
   },
@@ -26,13 +26,13 @@ const certifications: Certification[] = [
     title: "Front-End Web Development",
     issuer: "IBM SkillsBuild",
     description:
-      "Professional certification in modern front-end technologies including React and responsive design.",
-    date: "2024",
+      "Professional certification in modern front-end technologies including responsive design.",
+    date: "2023",
     gradient: "from-cyan-500 to-blue-500",
   },
   {
     title: "Tech-Wizard Program",
-    issuer: "Technical Education & Skill Development",
+    issuer: "MyCaptain Academic Internship",
     description:
       "Advanced technical program focused on emerging technologies and practical implementation skills.",
     date: "2024",

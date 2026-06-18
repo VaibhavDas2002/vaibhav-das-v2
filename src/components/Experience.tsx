@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Briefcase, GraduationCap, Calendar } from "lucide-react";
+import { TiltCard } from "./ui/TiltCard";
 
 interface Experience {
   title: string;
@@ -16,41 +17,53 @@ interface Experience {
 const experiences: Experience[] = [
   {
     title: "Software Developer",
-    company: "National Informatics Centre (NIC), West Bengal",
+    company: "National Informatics Centre (NIC), West Bengal | Kolkata, India",
     period: "Jul 2024 – Present",
     description:
-      "Developing and maintaining critical e-governance solutions serving millions of citizens.",
+      "Developed and maintained e-Governance software solutions serving thousands of citizens for government services.",
     highlights: [
-      "E-Governance Solutions",
-      "Large Scale PostgreSQL Databases",
-      "Secure Authentication Systems",
+      "PostgreSQL & MySQL",
+      "Secure Authentication",
+      "Data Privacy",
+      "End-to-End Testing",
       "Performance Optimization",
-      "Government Digital Services",
     ],
     type: "work",
   },
   {
     title: "Front-End Web Development Intern",
-    company: "IBM SkillsBuild",
-    period: "Internship",
+    company: "IBM SkillsBuild and CSRBOX | Remote",
+    period: "Jun 2023 – Jul 2023",
     description:
-      "Gained hands-on experience in modern web development technologies and best practices.",
+      "Completed an academic internship focused on modern front-end web development practices and frameworks.",
     highlights: [
+      "Full-stack Web Project",
       "Responsive Design",
-      "Full Stack Project Development",
-      "Modern Web Technologies",
+      "HTML/CSS/JS",
     ],
     type: "work",
   },
   {
-    title: "B.Tech in Computer Science & Engineering",
-    company: "Birbhum Institute of Engineering and Technology",
+    title: "Bachelor of Technology – Computer Science and Engineering",
+    company: "Birbhum Institute of Engineering and Technology, M.A.K.A.U.T.",
     period: "2020 – 2024",
-    description: "Graduated with a CGPA of 8.56, building a strong foundation in computer science.",
+    description: "Graduated with a strong foundation in computer science principles and software engineering.",
     highlights: [
-      "CGPA: 8.56",
-      "Computer Science & Engineering",
-      "Student Community General Secretary",
+      "CGPA: 8.56 / 10",
+      "Computer Science",
+      "Engineering",
+    ],
+    type: "education",
+  },
+  {
+    title: "Higher Secondary (Science)",
+    company: "U.P. Public School, C.B.S.E.",
+    period: "2018 – 2020",
+    description: "Completed higher secondary education with a focus on science and mathematics.",
+    highlights: [
+      "CGPA: 6.2 / 10",
+      "Science",
+      "Mathematics",
     ],
     type: "education",
   },
@@ -88,7 +101,7 @@ export default function Experience() {
         <div className="relative">
           {/* Timeline line */}
           <motion.div
-            className="absolute left-0 md:left-1/2 top-0 w-[2px] h-full bg-gradient-to-b from-primary via-secondary to-primary/20 -translate-x-1/2 origin-top"
+            className="absolute left-[20px] md:left-1/2 top-0 w-[2px] h-full bg-gradient-to-b from-primary via-secondary to-primary/20 md:-translate-x-1/2 origin-top"
             style={{ scaleY }}
           />
 
@@ -105,10 +118,12 @@ export default function Experience() {
               }`}
             >
               {/* Content */}
-              <div className={`flex-1 ${index % 2 === 0 ? "md:text-right md:pr-12" : "md:text-left md:pl-12"}`}>
-                <div className={`glass rounded-xl p-6 hover:border-primary/20 transition-all duration-300 ${
-                  index % 2 === 0 ? "md:ml-auto" : ""
-                }`}>
+              <div className={`flex-1 pl-16 md:pl-0 ${index % 2 === 0 ? "md:text-right md:pr-12" : "md:text-left md:pl-12"}`}>
+                <TiltCard 
+                  className={`glass rounded-xl p-6 hover:border-primary/20 transition-all duration-300 ${
+                    index % 2 === 0 ? "md:ml-auto" : ""
+                  }`}
+                >
                   <span className="text-xs font-mono text-primary flex items-center gap-2 mb-2">
                     <Calendar size={12} />
                     {exp.period}
@@ -130,11 +145,11 @@ export default function Experience() {
                       </span>
                     ))}
                   </div>
-                </div>
+                </TiltCard>
               </div>
 
               {/* Timeline dot */}
-              <div className="absolute left-0 md:left-1/2 top-8 -translate-x-1/2 z-10">
+              <div className="absolute left-[20px] md:left-1/2 top-8 -translate-x-1/2 z-10">
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center ${
                     exp.type === "work"

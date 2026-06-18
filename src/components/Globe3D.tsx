@@ -2,7 +2,7 @@
 
 import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Float, MeshDistortMaterial } from "@react-three/drei";
+import { OrbitControls, Float, MeshDistortMaterial, Stars, Sparkles } from "@react-three/drei";
 import * as THREE from "three";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 
@@ -165,7 +165,8 @@ function FloatingShapes() {
 
   const shapes = useMemo(() => {
     const items = [];
-    for (let i = 0; i < 20; i++) {
+    const types = ["icosahedron", "torus", "octahedron", "box"];
+    for (let i = 0; i < 30; i++) {
       const radius = 4 + Math.random() * 6;
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
@@ -175,9 +176,11 @@ function FloatingShapes() {
           radius * Math.sin(phi) * Math.sin(theta),
           radius * Math.cos(phi),
         ] as [number, number, number],
-        scale: 0.02 + Math.random() * 0.06,
+        scale: 0.05 + Math.random() * 0.1,
         color: Math.random() > 0.5 ? "#f97316" : "#a855f7",
         floatSpeed: 1 + Math.random() * 2,
+        type: types[Math.floor(Math.random() * types.length)],
+        rotation: [Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI] as [number, number, number]
       });
     }
     return items;
@@ -186,14 +189,18 @@ function FloatingShapes() {
   return (
     <group ref={groupRef}>
       {shapes.map((shape, i) => (
-        <Float key={i} speed={shape.floatSpeed} floatIntensity={1}>
-          <mesh position={shape.position} scale={shape.scale}>
-            <icosahedronGeometry args={[1, 0]} />
-            <meshBasicMaterial
+        <Float key={i} speed={shape.floatSpeed} floatIntensity={2} rotationIntensity={2}>
+          <mesh position={shape.position} scale={shape.scale} rotation={shape.rotation}>
+            {shape.type === "icosahedron" && <icosahedronGeometry args={[1, 0]} />}
+            {shape.type === "torus" && <torusGeometry args={[1, 0.4, 16, 32]} />}
+            {shape.type === "octahedron" && <octahedronGeometry args={[1, 0]} />}
+            {shape.type === "box" && <boxGeometry args={[1, 1, 1]} />}
+            <meshStandardMaterial
               color={shape.color}
+              roughness={0.2}
+              metalness={0.8}
               transparent
-              opacity={0.3}
-              wireframe
+              opacity={0.6}
             />
           </mesh>
         </Float>
@@ -217,6 +224,8 @@ export default function Globe3D() {
         <Globe />
       </Float>
       <FloatingShapes />
+      <Stars radius={10} depth={50} count={3000} factor={4} saturation={0} fade speed={1} />
+      <Sparkles count={200} scale={12} size={2} speed={0.4} opacity={0.2} color="#f97316" />
 
       <OrbitControls
         enableZoom={false}

@@ -14,26 +14,19 @@ interface Achievement {
 const achievements: Achievement[] = [
   {
     icon: Briefcase,
-    value: "3+",
-    label: "Years Teaching Experience",
+    value: "3",
+    label: "Years as Lecturer at Jatya Yuva Computer Siksha Mission",
     suffix: "Years",
-  },
-  {
-    icon: Building2,
-    value: "5+",
-    label: "Government Projects",
-    suffix: "Projects",
-  },
-  {
-    icon: Award,
-    value: "10+",
-    label: "Full Stack Applications",
-    suffix: "Apps",
   },
   {
     icon: Users,
     value: "1",
-    label: "Student Community General Secretary",
+    label: "Student Academic Mentor in Computer Science Dept",
+  },
+  {
+    icon: Award,
+    value: "1",
+    label: "General Secretary of College Student Community",
   },
   {
     icon: GraduationCap,
@@ -125,7 +118,7 @@ export default function Achievements() {
           </p>
         </motion.div>
 
-        <motion.div style={{ y }} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <motion.div style={{ y }} className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
           {achievements.map((achievement, index) => (
             <AchievementCard
               key={achievement.label}

@@ -13,10 +13,55 @@ import {
   Palette,
   Cpu,
 } from "lucide-react";
+import {
+  SiPython,
+  SiC,
+  SiCplusplus,
+  SiJavascript,
+  SiPhp,
+  SiHtml5,
+  SiCss3,
+  SiBootstrap,
+  SiTailwindcss,
+  SiReact,
+  SiMui,
+  SiDjango,
+  SiFlask,
+  SiLaravel,
+  SiLivewire,
+  SiNodedotjs,
+  SiExpress,
+  SiStrapi,
+  SiHasura,
+  SiGraphql,
+  SiMysql,
+  SiPostgresql,
+  SiOracle,
+  SiMicrosoftsqlserver,
+  SiMongodb,
+  SiFirebase,
+  SiGit,
+  SiGithub,
+  SiGitlab,
+  SiAnaconda,
+  SiPycharm,
+  SiAndroidstudio,
+  SiFigma,
+  SiAdobexd,
+  SiAdobephotoshop,
+  SiCanva,
+  SiMicrosoft,
+  SiWindows,
+  SiUbuntu,
+  SiFedora,
+  SiFedora,
+  SiVisualstudiocode
+} from "react-icons/si";
+import { TiltCard } from "./ui/TiltCard";
 
 interface Skill {
   name: string;
-  icon: string;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
   level: number;
 }
 
@@ -29,15 +74,28 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
+    title: "Languages",
+    icon: Code2,
+    color: "from-red-500 to-rose-500",
+    skills: [
+      { name: "Python", icon: SiPython, level: 90 },
+      { name: "C", icon: SiC, level: 85 },
+      { name: "C++", icon: SiCplusplus, level: 85 },
+      { name: "JavaScript", icon: SiJavascript, level: 92 },
+      { name: "PHP", icon: SiPhp, level: 95 },
+    ],
+  },
+  {
     title: "Frontend",
     icon: Layout,
     color: "from-orange-500 to-amber-500",
     skills: [
-      { name: "HTML5", icon: "⚡", level: 95 },
-      { name: "CSS3", icon: "🎨", level: 90 },
-      { name: "Bootstrap", icon: "📱", level: 85 },
-      { name: "Tailwind CSS", icon: "🌊", level: 90 },
-      { name: "ReactJS", icon: "⚛️", level: 85 },
+      { name: "HTML5", icon: SiHtml5, level: 95 },
+      { name: "CSS3", icon: SiCss3, level: 90 },
+      { name: "Bootstrap", icon: SiBootstrap, level: 85 },
+      { name: "Tailwind CSS", icon: SiTailwindcss, level: 90 },
+      { name: "ReactJS", icon: SiReact, level: 85 },
+      { name: "Material UI", icon: SiMui, level: 80 },
     ],
   },
   {
@@ -45,24 +103,28 @@ const skillCategories: SkillCategory[] = [
     icon: Server,
     color: "from-purple-500 to-pink-500",
     skills: [
-      { name: "PHP", icon: "🐘", level: 90 },
-      { name: "Laravel", icon: "🔥", level: 92 },
-      { name: "Django", icon: "🎯", level: 75 },
-      { name: "Flask", icon: "🧪", level: 70 },
-      { name: "Node.js", icon: "💚", level: 80 },
-      { name: "Express.js", icon: "🚀", level: 78 },
+      { name: "Django", icon: SiDjango, level: 75 },
+      { name: "Flask", icon: SiFlask, level: 70 },
+      { name: "Laravel", icon: SiLaravel, level: 92 },
+      { name: "Livewire", icon: SiLivewire, level: 85 },
+      { name: "Node.js", icon: SiNodedotjs, level: 80 },
+      { name: "Express.js", icon: SiExpress, level: 80 },
+      { name: "Strapi", icon: SiStrapi, level: 70 },
+      { name: "Hasura", icon: SiHasura, level: 75 },
+      { name: "GraphQL", icon: SiGraphql, level: 75 },
     ],
   },
   {
-    title: "Database",
+    title: "Databases",
     icon: Database,
     color: "from-blue-500 to-cyan-500",
     skills: [
-      { name: "PostgreSQL", icon: "🐘", level: 95 },
-      { name: "MySQL", icon: "🐬", level: 88 },
-      { name: "MongoDB", icon: "🍃", level: 75 },
-      { name: "Oracle", icon: "🏛️", level: 70 },
-      { name: "SQL Server", icon: "🗄️", level: 72 },
+      { name: "MySQL", icon: SiMysql, level: 88 },
+      { name: "PostgreSQL", icon: SiPostgresql, level: 95 },
+      { name: "Oracle", icon: SiOracle, level: 70 },
+      { name: "Microsoft SQL Server", icon: SiMicrosoftsqlserver, level: 70 },
+      { name: "MongoDB", icon: SiMongodb, level: 75 },
+      { name: "Firebase", icon: SiFirebase, level: 80 },
     ],
   },
   {
@@ -70,11 +132,35 @@ const skillCategories: SkillCategory[] = [
     icon: Terminal,
     color: "from-green-500 to-emerald-500",
     skills: [
-      { name: "Git", icon: "📦", level: 90 },
-      { name: "GitHub", icon: "🐙", level: 88 },
-      { name: "GitLab", icon: "🦊", level: 80 },
-      { name: "Docker", icon: "🐳", level: 75 },
-      { name: "VS Code", icon: "💻", level: 95 },
+      { name: "Git", icon: SiGit, level: 90 },
+      { name: "GitHub", icon: SiGithub, level: 88 },
+      { name: "GitLab", icon: SiGitlab, level: 80 },
+      { name: "Anaconda", icon: SiAnaconda, level: 80 },
+      { name: "PyCharm", icon: SiPycharm, level: 95 },
+      { name: "Android Studio", icon: SiAndroidstudio, level: 75 },
+      { name: "VS Code", icon: SiVisualstudiocode, level: 95 },
+    ],
+  },
+  {
+    title: "Design",
+    icon: Palette,
+    color: "from-pink-500 to-rose-500",
+    skills: [
+      { name: "Figma", icon: SiFigma, level: 85 },
+      { name: "Adobe XD", icon: SiAdobexd, level: 80 },
+      { name: "Photoshop", icon: SiAdobephotoshop, level: 75 },
+      { name: "Canva", icon: SiCanva, level: 80 },
+      { name: "Microsoft Office Suite", icon: SiMicrosoft, level: 90 },
+    ],
+  },
+  {
+    title: "Operating Systems",
+    icon: Cpu,
+    color: "from-slate-500 to-gray-500",
+    skills: [
+      { name: "Windows", icon: SiWindows, level: 85 },
+      { name: "Ubuntu", icon: SiUbuntu, level: 80 },
+      { name: "Fedora", icon: SiFedora, level: 75 },
     ],
   },
 ];
@@ -95,26 +181,28 @@ const SkillCard = ({
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       whileHover={{ scale: 1.05, y: -5 }}
-      className="group relative"
+      className="group relative h-full"
     >
-      <div className="glass rounded-xl p-4 hover:border-primary/20 transition-all duration-300 cursor-default">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-lg">{skill.icon}</span>
-          <span className="text-xs font-mono text-muted">{skill.level}%</span>
+      <TiltCard tiltMaxAngleX={15} tiltMaxAngleY={15} scaleOnHover={1} className="h-full">
+        <div className="glass rounded-xl p-4 hover:border-primary/20 transition-all duration-300 cursor-default h-full flex flex-col justify-center">
+          <div className="flex items-center justify-between mb-2">
+            <skill.icon size={20} className="text-white/80" />
+            <span className="text-xs font-mono text-muted">{skill.level}%</span>
+          </div>
+          <p className="text-sm font-medium">{skill.name}</p>
+          <div className="mt-2 h-1 rounded-full bg-white/5 overflow-hidden">
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: `${skill.level}%` }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.3 + index * 0.05, ease: "easeOut" }}
+              className={`h-full rounded-full bg-gradient-to-r ${color} relative`}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer" />
+            </motion.div>
+          </div>
         </div>
-        <p className="text-sm font-medium">{skill.name}</p>
-        <div className="mt-2 h-1 rounded-full bg-white/5 overflow-hidden">
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: `${skill.level}%` }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.3 + index * 0.05, ease: "easeOut" }}
-            className={`h-full rounded-full bg-gradient-to-r ${color} relative`}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent shimmer" />
-          </motion.div>
-        </div>
-      </div>
+      </TiltCard>
       <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/0 via-primary/5 to-secondary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
     </motion.div>
   );

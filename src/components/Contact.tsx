@@ -2,8 +2,9 @@
 
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Send, Globe, GitBranch, Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
+import { Send, Globe, GitBranch, Mail, MapPin, Phone, ArrowUpRight, Twitter, Instagram } from "lucide-react";
 import { Button } from "./ui/button";
+import { supabase } from "../lib/supabase";
 
 const socialLinks = [
   {
@@ -23,6 +24,18 @@ const socialLinks = [
     icon: Mail,
     href: "mailto:vaibhavdas.dev@gmail.com",
     color: "hover:text-primary",
+  },
+  {
+    name: "X (Twitter)",
+    icon: Twitter,
+    href: "https://twitter.com",
+    color: "hover:text-blue-400",
+  },
+  {
+    name: "Instagram",
+    icon: Instagram,
+    href: "https://instagram.com",
+    color: "hover:text-pink-500",
   },
 ];
 
@@ -45,11 +58,30 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    // Simulate sending
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setStatus("sent");
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setTimeout(() => setStatus("idle"), 3000);
+    
+    try {
+      const { error } = await supabase
+        .from("contacts")
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            createdAt: new Date().toISOString(),
+          },
+        ]);
+        
+      if (error) throw error;
+      
+      setStatus("sent");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      setStatus("error");
+    } finally {
+      setTimeout(() => setStatus("idle"), 3000);
+    }
   };
 
   return (
