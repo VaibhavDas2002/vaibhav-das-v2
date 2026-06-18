@@ -78,8 +78,8 @@ export default function Experience() {
   const scaleY = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 1]);
 
   return (
-    <section id="experience" ref={ref} className="relative py-32 px-6">
-      <div className="mx-auto max-w-5xl">
+    <section id="experience" ref={ref} className="relative py-20 sm:py-32 px-4 sm:px-6">
+      <div className="mx-auto max-w-5xl px-0 sm:px-2">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -113,12 +113,12 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className={`relative flex flex-col md:flex-row gap-8 mb-12 ${
+              className={`relative flex flex-col md:flex-row gap-6 md:gap-8 mb-10 ${
                 index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               }`}
             >
               {/* Content */}
-              <div className={`flex-1 pl-16 md:pl-0 ${index % 2 === 0 ? "md:text-right md:pr-12" : "md:text-left md:pl-12"}`}>
+              <div className={`flex-1 pl-12 md:pl-0 ${index % 2 === 0 ? "md:text-right md:pr-12" : "md:text-left md:pl-12"}`}>
                 <TiltCard 
                   className={`glass rounded-xl p-6 hover:border-primary/20 transition-all duration-300 ${
                     index % 2 === 0 ? "md:ml-auto" : ""

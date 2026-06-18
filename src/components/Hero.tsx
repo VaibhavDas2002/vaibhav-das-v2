@@ -48,21 +48,21 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background/50" />
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5" />
 
-      {/* 3D Globe */}
-      <div className="absolute inset-0 z-0">
+      {/* 3D Globe - reduced opacity on mobile */}
+      <div className="absolute inset-0 z-0 opacity-40 sm:opacity-100">
         <Globe3D />
       </div>
 
       <motion.div
         style={{ y, opacity }}
-        className="relative z-10 max-w-5xl mx-auto px-6 text-center"
+        className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 text-center"
       >
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 mb-8"
+          className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 mb-6 sm:mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
           <span className="text-xs text-muted font-medium">
@@ -75,7 +75,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 sm:mb-6"
         >
           <span className="text-foreground">Hi, I&apos;m </span>
           <br className="sm:hidden" />
@@ -87,9 +87,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-xl sm:text-2xl md:text-3xl text-muted font-light mb-4"
+          className="text-base sm:text-2xl md:text-3xl text-muted font-light mb-3 sm:mb-4"
         >
-          Software Developer & Full Stack Engineer
+          Software Developer &amp; Full Stack Engineer
         </motion.p>
 
         {/* Typewriter */}
@@ -97,7 +97,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-lg sm:text-xl text-primary font-mono mb-12 h-8"
+          className="text-sm sm:text-xl text-primary font-mono mb-8 sm:mb-12 h-6 sm:h-8"
         >
           <Typewriter words={typewriterWords} />
         </motion.div>
@@ -107,12 +107,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.0 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
         >
           <Button
             variant="primary"
             size="lg"
             onClick={() => scrollTo("#projects")}
+            className="w-full sm:w-auto"
           >
             View Projects
             <ArrowRight size={16} />
@@ -121,6 +122,7 @@ export default function Hero() {
             variant="secondary"
             size="lg"
             onClick={() => scrollTo("#contact")}
+            className="w-full sm:w-auto"
           >
             <Mail size={16} />
             Contact Me
@@ -128,7 +130,7 @@ export default function Hero() {
           <a
             href="/Vaibhav_Das_CV.pdf"
             download="Vaibhav_Das_CV.pdf"
-            className="inline-flex items-center gap-2 h-12 px-8 rounded-full text-sm font-medium border border-white/10 text-muted hover:text-foreground hover:border-white/20 transition-all duration-300"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-8 rounded-full text-sm font-medium border border-white/10 text-muted hover:text-foreground hover:border-white/20 transition-all duration-300"
           >
             <Download size={16} />
             Download CV
@@ -140,15 +142,15 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          className="absolute -bottom-4 sm:bottom-10 left-1/2 -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="flex flex-col items-center gap-2"
           >
-            <span className="text-xs text-muted">Scroll to explore</span>
-            <div className="w-[1px] h-8 bg-gradient-to-b from-primary to-transparent" />
+            <span className="text-xs text-muted hidden sm:block">Scroll to explore</span>
+            <div className="w-[1px] h-6 sm:h-8 bg-gradient-to-b from-primary to-transparent" />
           </motion.div>
         </motion.div>
       </motion.div>

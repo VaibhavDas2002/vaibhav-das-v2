@@ -72,7 +72,7 @@ export default function Projects() {
   const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
   return (
-    <section id="projects" ref={ref} className="relative py-32 px-6 overflow-hidden">
+    <section id="projects" ref={ref} className="relative py-20 sm:py-32 px-4 sm:px-6 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/[0.02] to-transparent" />
 
       <div className="mx-auto max-w-7xl relative z-10">
@@ -94,7 +94,7 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        <motion.div style={{ y }} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div style={{ y }} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}

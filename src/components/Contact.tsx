@@ -10,19 +10,19 @@ const socialLinks = [
   {
     name: "LinkedIn",
     icon: Globe,
-    href: "https://linkedin.com/in/vaibhav-das-wb",
+    href: "https://www.linkedin.com/in/vaibhav-das/",
     color: "hover:text-blue-500",
   },
   {
     name: "GitHub",
     icon: GitBranch,
-    href: "https://github.com/vaibhavdas-wb",
+    href: "https://github.com/VaibhavDas2002",
     color: "hover:text-foreground",
   },
   {
     name: "Email",
     icon: Mail,
-    href: "mailto:vaibhavdas.dev@gmail.com",
+    href: "mailto:vaibhav.das.360@gmail.com",
     color: "hover:text-primary",
   },
   {
@@ -80,7 +80,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" ref={ref} className="relative py-32 px-6">
+    <section id="contact" ref={ref} className="relative py-20 sm:py-32 px-4 sm:px-6">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/[0.02] to-transparent" />
 
       <div className="mx-auto max-w-5xl relative z-10">
@@ -102,7 +102,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-5 gap-8 items-start">
+        <div className="grid md:grid-cols-5 gap-6 md:gap-8 items-start">
           {/* Contact info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -118,8 +118,8 @@ export default function Contact() {
                   {
                     icon: Mail,
                     label: "Email",
-                    value: "vaibhavdas.dev@gmail.com",
-                    href: "mailto:vaibhavdas.dev@gmail.com",
+                    value: "vaibhav.das.360@gmail.com",
+                    href: "mailto:vaibhav.das.360@gmail.com",
                   },
                   {
                     icon: MapPin,

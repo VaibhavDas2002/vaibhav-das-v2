@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 interface TiltCardProps {
@@ -20,6 +20,12 @@ export function TiltCard({
 }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    // Disable tilt on touch devices to prevent sticky hover
+    setIsTouchDevice(window.matchMedia("(hover: none)").matches);
+  }, []);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -32,23 +38,20 @@ export function TiltCard({
   const rotateY = useTransform(springX, [-0.5, 0.5], [-tiltMaxAngleY, tiltMaxAngleY]);
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    if (!ref.current) return;
+    if (!ref.current || isTouchDevice) return;
     const rect = ref.current.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
-    
-    // Calculate mouse position relative to the center of the card (-0.5 to 0.5)
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
-    
     const xPct = mouseX / width - 0.5;
     const yPct = mouseY / height - 0.5;
-
     x.set(xPct);
     y.set(yPct);
   }
 
   function handleMouseEnter() {
+    if (isTouchDevice) return;
     setIsHovered(true);
   }
 
@@ -56,6 +59,15 @@ export function TiltCard({
     setIsHovered(false);
     x.set(0);
     y.set(0);
+  }
+
+  // On touch devices render as a plain div — no transform overhead
+  if (isTouchDevice) {
+    return (
+      <div className={`relative ${className}`}>
+        {children}
+      </div>
+    );
   }
 
   return (

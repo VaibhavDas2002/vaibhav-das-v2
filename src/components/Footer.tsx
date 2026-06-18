@@ -8,9 +8,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative border-t border-white/5 py-12 px-6">
+    <footer className="relative border-t border-white/5 py-10 sm:py-12 px-4 sm:px-6">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="flex flex-col items-center gap-8 text-center">
           {/* Brand */}
           <div className="text-center md:text-left">
             <button
@@ -44,10 +44,10 @@ export default function Footer() {
           {/* Social */}
           <div className="flex gap-4">
             {[
-              { icon: GitBranch, href: "https://github.com/vaibhavdas-wb", label: "GitHub" },
-              { icon: Globe, href: "https://linkedin.com/in/vaibhav-das-wb", label: "LinkedIn" },
+              { icon: GitBranch, href: "https://github.com/VaibhavDas2002", label: "GitHub" },
+              { icon: Globe, href: "https://www.linkedin.com/in/vaibhav-das/", label: "LinkedIn" },
               { icon: X, href: "https://twitter.com", label: "X (Twitter)" },
-              { icon: Mail, href: "mailto:vaibhavdas.dev@gmail.com", label: "Email" },
+              { icon: Mail, href: "mailto:vaibhav.das.360@gmail.com", label: "Email" },
             ].map((social) => (
               <a
                 key={social.label}

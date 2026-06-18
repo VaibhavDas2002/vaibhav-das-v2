@@ -49,7 +49,7 @@ export default function Certifications() {
   const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
   return (
-    <section id="certifications" ref={ref} className="relative py-32 px-6">
+    <section id="certifications" ref={ref} className="relative py-20 sm:py-32 px-4 sm:px-6">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

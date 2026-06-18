@@ -206,7 +206,7 @@ export default function Skills() {
   const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
   return (
-    <section id="skills" ref={ref} className="relative py-32 px-6 overflow-hidden">
+    <section id="skills" ref={ref} className="relative py-20 sm:py-32 px-4 sm:px-6 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent" />
 
@@ -228,7 +228,7 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        <motion.div style={{ y }} className="grid md:grid-cols-2 gap-8">
+        <motion.div style={{ y }} className="grid sm:grid-cols-2 gap-6 sm:gap-8">
           {skillCategories.map((category) => (
             <motion.div
               key={category.title}
@@ -247,7 +247,7 @@ export default function Skills() {
                   <h3 className="font-semibold text-lg">{category.title}</h3>
                 </div>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 gap-3">
                 {category.skills.map((skill, i) => (
                   <SkillCard
                     key={skill.name}

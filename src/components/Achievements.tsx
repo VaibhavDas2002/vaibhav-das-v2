@@ -96,7 +96,7 @@ export default function Achievements() {
   const y = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
-    <section id="achievements" ref={ref} className="relative py-32 px-6">
+    <section id="achievements" ref={ref} className="relative py-20 sm:py-32 px-4 sm:px-6">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent" />
 
       <div className="mx-auto max-w-7xl relative z-10">

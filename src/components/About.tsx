@@ -53,7 +53,7 @@ export default function About() {
   const y2 = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
   return (
-    <section id="about" ref={ref} className="relative py-32 px-6">
+    <section id="about" ref={ref} className="relative py-20 sm:py-32 px-4 sm:px-6">
       <div className="mx-auto max-w-7xl">
         {/* Section header */}
         <motion.div
@@ -76,7 +76,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-12 items-start">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start">
           {/* Profile Card */}
           <motion.div
             style={{ y, opacity }}
@@ -131,13 +131,13 @@ export default function About() {
               </div>
             </motion.div>
 
-            {/* Abstract 3D Element */}
+            {/* Abstract 3D Element - hidden on small screens */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mt-8 glass rounded-2xl p-4 glow-border relative overflow-hidden"
+              className="mt-8 glass rounded-2xl p-4 glow-border relative overflow-hidden hidden md:block"
             >
               <Abstract3D />
             </motion.div>
