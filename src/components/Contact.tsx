@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Send, Globe, GitBranch, Mail, MapPin, Phone, ArrowUpRight, X } from "lucide-react";
 import { Button } from "./ui/button";
-import { supabase } from "../lib/supabase";
+import { getSupabase } from "../lib/supabase";
 
 const socialLinks = [
   {
@@ -54,6 +54,7 @@ export default function Contact() {
     setStatus("sending");
     
     try {
+      const supabase = getSupabase();
       const { error } = await supabase
         .from("contacts")
         .insert([
