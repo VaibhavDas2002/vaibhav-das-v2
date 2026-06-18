@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Send, Globe, GitBranch, Mail, MapPin, Phone, ArrowUpRight, Twitter, Instagram } from "lucide-react";
+import { Send, Globe, GitBranch, Mail, MapPin, Phone, ArrowUpRight, Twitter } from "lucide-react";
 import { Button } from "./ui/button";
 import { supabase } from "../lib/supabase";
 
@@ -30,12 +30,6 @@ const socialLinks = [
     icon: Twitter,
     href: "https://twitter.com",
     color: "hover:text-blue-400",
-  },
-  {
-    name: "Instagram",
-    icon: Instagram,
-    href: "https://instagram.com",
-    color: "hover:text-pink-500",
   },
 ];
 

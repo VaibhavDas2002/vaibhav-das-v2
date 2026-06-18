@@ -20,7 +20,6 @@ import {
   SiJavascript,
   SiPhp,
   SiHtml5,
-  SiCss3,
   SiBootstrap,
   SiTailwindcss,
   SiReact,
@@ -37,7 +36,6 @@ import {
   SiMysql,
   SiPostgresql,
   SiOracle,
-  SiMicrosoftsqlserver,
   SiMongodb,
   SiFirebase,
   SiGit,
@@ -47,15 +45,7 @@ import {
   SiPycharm,
   SiAndroidstudio,
   SiFigma,
-  SiAdobexd,
-  SiAdobephotoshop,
-  SiCanva,
-  SiMicrosoft,
-  SiWindows,
-  SiUbuntu,
-  SiFedora,
-  SiFedora,
-  SiVisualstudiocode
+  SiCanva
 } from "react-icons/si";
 import { TiltCard } from "./ui/TiltCard";
 
@@ -91,7 +81,7 @@ const skillCategories: SkillCategory[] = [
     color: "from-orange-500 to-amber-500",
     skills: [
       { name: "HTML5", icon: SiHtml5, level: 95 },
-      { name: "CSS3", icon: SiCss3, level: 90 },
+      { name: "CSS3", icon: Layout, level: 90 },
       { name: "Bootstrap", icon: SiBootstrap, level: 85 },
       { name: "Tailwind CSS", icon: SiTailwindcss, level: 90 },
       { name: "ReactJS", icon: SiReact, level: 85 },
@@ -122,7 +112,7 @@ const skillCategories: SkillCategory[] = [
       { name: "MySQL", icon: SiMysql, level: 88 },
       { name: "PostgreSQL", icon: SiPostgresql, level: 95 },
       { name: "Oracle", icon: SiOracle, level: 70 },
-      { name: "Microsoft SQL Server", icon: SiMicrosoftsqlserver, level: 70 },
+      { name: "Microsoft SQL Server", icon: Database, level: 70 },
       { name: "MongoDB", icon: SiMongodb, level: 75 },
       { name: "Firebase", icon: SiFirebase, level: 80 },
     ],
@@ -138,7 +128,7 @@ const skillCategories: SkillCategory[] = [
       { name: "Anaconda", icon: SiAnaconda, level: 80 },
       { name: "PyCharm", icon: SiPycharm, level: 95 },
       { name: "Android Studio", icon: SiAndroidstudio, level: 75 },
-      { name: "VS Code", icon: SiVisualstudiocode, level: 95 },
+      { name: "VS Code", icon: Code2, level: 95 },
     ],
   },
   {
@@ -147,10 +137,10 @@ const skillCategories: SkillCategory[] = [
     color: "from-pink-500 to-rose-500",
     skills: [
       { name: "Figma", icon: SiFigma, level: 85 },
-      { name: "Adobe XD", icon: SiAdobexd, level: 80 },
-      { name: "Photoshop", icon: SiAdobephotoshop, level: 75 },
+      { name: "Adobe XD", icon: Palette, level: 80 },
+      { name: "Photoshop", icon: Palette, level: 75 },
       { name: "Canva", icon: SiCanva, level: 80 },
-      { name: "Microsoft Office Suite", icon: SiMicrosoft, level: 90 },
+      { name: "Microsoft Office Suite", icon: Cpu, level: 90 },
     ],
   },
   {
@@ -158,9 +148,9 @@ const skillCategories: SkillCategory[] = [
     icon: Cpu,
     color: "from-slate-500 to-gray-500",
     skills: [
-      { name: "Windows", icon: SiWindows, level: 85 },
-      { name: "Ubuntu", icon: SiUbuntu, level: 80 },
-      { name: "Fedora", icon: SiFedora, level: 75 },
+      { name: "Windows", icon: Cpu, level: 85 },
+      { name: "Ubuntu", icon: Terminal, level: 80 },
+      { name: "Fedora", icon: Terminal, level: 75 },
     ],
   },
 ];
